@@ -292,6 +292,7 @@ button {
      background-size: 100% 100%;
      padding-top: 13%;
      padding-bottom: 150px;
+     justify-content: space-between;
 }
 
 .text-bg {
@@ -301,6 +302,17 @@ button {
      width: 100%;
 }
 
+#greeting {
+     color: white;
+     font-size: 55px;
+}
+
+#bio{
+     color: white;
+     font-size: 20px;
+     font-style: italic;
+     background-color: #7598A0;
+}
 .bann_img {
      padding-right: 40px;
 }
