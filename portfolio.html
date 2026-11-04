@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" class="snap">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | Lea Iodice</title>
+  <meta name="description" content="Data engineering, cloud and analytics projects by Lea Iodice." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">lea<span>.</span>iodice</a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">About</a>
+        <a href="portfolio.html" aria-current="page">Portfolio</a>
+        <a href="resume.html">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <ol class="progress" aria-label="Projects">
+    <li><a href="#intro" class="active"><span>Intro</span></a></li>
+    <li><a href="#data-pipeline"><span>01 Data Pipeline</span></a></li>
+    <li><a href="#oci-deployment"><span>02 OCI Deployment</span></a></li>
+    <li><a href="#oci-security"><span>03 OCI Security</span></a></li>
+    <li><a href="#auto-mpg"><span>04 Auto MPG</span></a></li>
+    <li><a href="#global-emissions"><span>05 Global Emissions</span></a></li>
+    <li><a href="#fifa"><span>06 FIFA World Cup</span></a></li>
+    <li><a href="#spotify"><span>07 Spotify Top 100</span></a></li>
+    <li><a href="#data-cleaning"><span>08 Data Cleaning</span></a></li>
+    <li><a href="#tableau"><span>09 Tableau</span></a></li>
+    <li><a href="#contact"><span>Contact</span></a></li>
+  </ol>
+
+  <main>
+    <section class="panel panel-intro" id="intro">
+      <div class="container">
+        <p class="eyebrow reveal">Portfolio</p>
+        <h1 class="reveal reveal-delay-1">Selected <span class="gradient-text">work.</span></h1>
+        <p class="reveal reveal-delay-2">
+          Data pipelines, SQL, cloud deployments and analytics. Scroll to see one project at a time.
+          Everything here was built by me unless noted otherwise.
+        </p>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">Scroll</div>
+    </section>
+
+    <section class="panel" id="data-pipeline">
+      <div class="container project">
+        <div>
+          <p class="project-index reveal"><strong>01</strong> / Data Engineering</p>
+          <h2 class="reveal reveal-delay-1">Data Engineering Pipeline on Oracle Cloud</h2>
+          <p class="context reveal reveal-delay-1">Team project with Michael Harpole</p>
+          <p class="summary reveal reveal-delay-2">
+            An end-to-end pipeline on Oracle Cloud. Raw data lands in Object Storage, an ETL instance in a private
+            subnet loads it into Autonomous Data Warehouse, and OCI Data Science notebooks query the clean data
+            for analysis.
+          </p>
+          <ul class="highlights reveal reveal-delay-2">
+            <li>Designed a VCN with public and private subnets so Object Storage, the ETL instance and the warehouse are not exposed to the internet.</li>
+            <li>Wrote Python with the OCI SDK to read from Object Storage through a private endpoint and connect to ADW using its wallet.</li>
+            <li>Ran the analysis in OCI notebooks against ADW, covering product profitability, customer lifetime value, product affinity, retention and sales forecasting.</li>
+          </ul>
+          <ul class="chips reveal reveal-delay-3">
+            <li>Python</li>
+            <li>OCI SDK</li>
+            <li>Object Storage</li>
+            <li>Autonomous Data Warehouse</li>
+            <li>OCI Data Science</li>
+            <li>ETL</li>
+          </ul>
+          <div class="project-links reveal reveal-delay-3">
+            <a class="btn btn-primary" href="https://github.com/liodice222/ubiquitous-train-etl-pipeline" target="_blank" rel="noopener">
+              ETL code
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <a class="btn" href="https://github.com/liodice222/ubiquitous-train-deploy-jupyter" target="_blank" rel="noopener">Analytics code</a>
+            <a class="btn" href="https://www.youtube.com/watch?v=a1c9JQlf8q0" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+        <div class="project-media wide reveal reveal-delay-2">
+          <button class="video-embed" type="button" data-video="a1c9JQlf8q0" aria-label="Play the Data Engineering Pipeline walkthrough video">
+            <img src="assets/img/data-engineering-cover.jpg" alt="Architecture diagram of the Oracle Cloud VCN with object storage, ETL instance and Autonomous Data Warehouse in a private subnet" width="1280" height="720" loading="lazy" />
+            <span class="play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <p class="note">Walkthrough video</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="panel" id="oci-deployment">
+      <div class="container project flip">
+        <div>
+          <p class="project-index reveal"><strong>02</strong> / Cloud Deployment</p>
+          <h2 class="reveal reveal-delay-1">PubChem Search App on OCI</h2>
+          <p class="context reveal reveal-delay-1">Full stack app hosted on Oracle Cloud</p>
+          <p class="summary reveal reveal-delay-2">
+            A Flask web app that calls the PubChem API to look up chemical compounds, showing details like the
+            IUPAC name, molecular weight and SMILES string. Users register and log in before they can search.
+          </p>
+          <ul class="highlights reveal reveal-delay-2">
+            <li>Integrated the third-party PubChem REST API and parsed its JSON responses into a clean results page.</li>
+            <li>Stored user credentials securely in a database using SQLAlchemy.</li>
+            <li>Deployed on a public OCI compute instance with nginx in front of gunicorn.</li>
+          </ul>
+          <ul class="chips reveal reveal-delay-3">
+            <li>Python</li>
+            <li>Flask</li>
+            <li>SQLAlchemy</li>
+            <li>REST APIs</li>
+            <li>OCI Compute</li>
+            <li>nginx</li>
+            <li>gunicorn</li>
+          </ul>
+          <div class="project-links reveal reveal-delay-3">
+            <a class="btn btn-primary" href="https://github.com/liodice222/oci-project" target="_blank" rel="noopener">
+              View code
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <a class="btn" href="https://www.youtube.com/watch?v=PDdxAbJka7E" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+        <div class="project-media wide reveal reveal-delay-2">
+          <button class="video-embed" type="button" data-video="PDdxAbJka7E" aria-label="Play the PubChem app deployment video">
+            <img src="assets/img/deployment-cover.jpg" alt="The PubChem app showing compound information for glucose" width="1280" height="720" loading="lazy" />
+            <span class="play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <p class="note">Project presentation</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="oci-security">
+      <div class="container project">
+        <div>
+          <p class="project-index reveal"><strong>03</strong> / Security</p>
+          <h2 class="reveal reveal-delay-1">Cyber Literacy &amp; OCI Security</h2>
+          <p class="context reveal reveal-delay-1">Hardening the PubChem app against the OWASP Top 10</p>
+          <p class="summary reveal reveal-delay-2">
+            I revisited the PubChem app and addressed the most relevant OWASP vulnerabilities. Then I redeployed it
+            on OCI with tighter access controls and a load balancer.
+          </p>
+          <ul class="highlights reveal reveal-delay-2">
+            <li>Blocked cross-site scripting in the search field with input sanitization and a Content Security Policy.</li>
+            <li>Prevented SQL injection with parameterized queries, input validation and an ORM for authentication.</li>
+            <li>Fixed broken access control by enforcing authentication and storing passwords as hashes.</li>
+            <li>Tightened OCI IAM policies and added a load-balanced deployment.</li>
+          </ul>
+          <ul class="chips reveal reveal-delay-3">
+            <li>OWASP Top 10</li>
+            <li>Flask</li>
+            <li>Content Security Policy</li>
+            <li>OCI IAM</li>
+            <li>Load Balancer</li>
+            <li>Bash</li>
+          </ul>
+          <div class="project-links reveal reveal-delay-3">
+            <a class="btn btn-primary" href="https://github.com/liodice222/oci-cyberliteracy" target="_blank" rel="noopener">
+              View code
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <a class="btn" href="https://www.youtube.com/watch?v=Upq4h0BlOP8" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+        <div class="project-media wide reveal reveal-delay-2">
+          <button class="video-embed" type="button" data-video="Upq4h0BlOP8" aria-label="Play the Cyber Literacy and OCI Security presentation">
+            <img src="assets/img/cyber-literacy-cover.jpg" alt="Presentation slide listing the OWASP vulnerabilities addressed in the app" width="1280" height="720" loading="lazy" />
+            <span class="play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <p class="note">Cyber literacy presentation</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="auto-mpg">
+      <div class="container project flip">
+        <div>
+          <p class="project-index reveal"><strong>04</strong> / Data Science</p>
+          <h2 class="reveal reveal-delay-1">Auto MPG Exploration</h2>
+          <p class="context reveal reveal-delay-1">MIT Applied Data Science Program</p>
+          <p class="summary reveal reveal-delay-2">
+            I explored 398 cars from 1970 to 1982 and used PCA and t-SNE to cut seven engineering features down to
+            a handful of components. That revealed three distinct groups of vehicles by efficiency, weight and age.
+          </p>
+          <ul class="highlights reveal reveal-delay-2">
+            <li>Cleaned the data by treating six <code class="mono">?</code> horsepower values as missing, imputing them, and dropping the high-cardinality car name column.</li>
+            <li>Found that MPG has strong negative correlations with cylinders, displacement, horsepower and weight (about &minus;0.8 for each).</li>
+            <li>The first three principal components explain about 90% of the variance, which reduces 7 features to 3.</li>
+            <li>t-SNE separated the cars into three clusters: heavier, older, low-MPG cars; newer mid-range cars; and the lightest, most efficient cars.</li>
+          </ul>
+          <ul class="chips reveal reveal-delay-3">
+            <li>Python</li>
+            <li>pandas</li>
+            <li>NumPy</li>
+            <li>scikit-learn</li>
+            <li>PCA</li>
+            <li>t-SNE</li>
+            <li>seaborn</li>
+          </ul>
+          <div class="project-links reveal reveal-delay-3">
+            <a class="btn btn-primary" href="https://deepnote.com/workspace/lea-9978-35ddfe60-5d60-43ae-a372-9213afb14bfe/project/Leas-Portfolio-fc006875-c8da-4d71-afdc-113db8af96ac/notebook/Auto_MPG-ebca3465ecb244e7a014458513a8c778" target="_blank" rel="noopener">
+              Open notebook
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <a class="btn" href="portfolio/auto.html" target="_blank" rel="noopener">View static export</a>
+          </div>
+        </div>
+        <div class="project-media reveal reveal-delay-2">
+          <a href="https://deepnote.com/workspace/lea-9978-35ddfe60-5d60-43ae-a372-9213afb14bfe/project/Leas-Portfolio-fc006875-c8da-4d71-afdc-113db8af96ac/notebook/Auto_MPG-ebca3465ecb244e7a014458513a8c778" target="_blank" rel="noopener" aria-label="Open the Auto MPG notebook">
+            <img src="assets/img/auto-mpg-cover.jpg" alt="Auto MPG project cover showing a t-SNE scatter plot of three car clusters and boxplots comparing the groups" width="1000" height="1000" loading="lazy" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="global-emissions">
+      <div class="container project">
+        <div>
+          <p class="project-index reveal"><strong>05</strong> / Data Analysis</p>
+          <h2 class="reveal reveal-delay-1">Global Emissions Analysis</h2>
+          <p class="context reveal reveal-delay-1">Kaggle global methane emissions dataset</p>
+          <p class="summary reveal reveal-delay-2">
+            An exploratory analysis of methane emissions by region, segment, type and sector, to understand where
+            emissions come from and what drives them.
+          </p>
+          <ul class="highlights reveal reveal-delay-2">
+            <li>Asia Pacific (led by China), North America (led by the U.S.), and Russia and the Caspian produce the most emissions.</li>
+            <li>Onshore oil is the single largest emissions segment.</li>
+            <li>Energy accounts for 54% of total emissions, followed by agriculture at 29.4% and waste at 14.6%.</li>
+          </ul>
+          <ul class="chips reveal reveal-delay-3">
+            <li>Python</li>
+            <li>pandas</li>
+            <li>matplotlib</li>
+            <li>seaborn</li>
+            <li>EDA</li>
+          </ul>
+          <div class="project-links reveal reveal-delay-3">
+            <a class="btn btn-primary" href="https://deepnote.com/workspace/lea-9978-35ddfe60-5d60-43ae-a372-9213afb14bfe/project/Leas-Portfolio-fc006875-c8da-4d71-afdc-113db8af96ac/notebook/Global_Emissions-22378cb6dbeb49069643a4bb462c9350" target="_blank" rel="noopener">
+              Open notebook
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <a class="btn" href="portfolio/emissions.html" target="_blank" rel="noopener">View static export</a>
+          </div>
+        </div>
+        <div class="project-media reveal reveal-delay-2">
+          <a href="https://deepnote.com/workspace/lea-9978-35ddfe60-5d60-43ae-a372-9213afb14bfe/project/Leas-Portfolio-fc006875-c8da-4d71-afdc-113db8af96ac/notebook/Global_Emissions-22378cb6dbeb49069643a4bb462c9350" target="_blank" rel="noopener" aria-label="Open the Global Emissions notebook">
+            <img src="assets/img/global-emissions-cover.jpg" alt="Global Emissions Analysis cover with a pie chart of emissions by sector and a bar chart of emissions by segment" width="1000" height="1000" loading="lazy" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="fifa">
+      <div class="container project flip">
+        <div>
+          <p class="project-index reveal"><strong>06</strong> / Data Analysis</p>
+          <h2 class="reveal reveal-delay-1">FIFA World Cup Data Analysis</h2>
+          <p class="context reveal reveal-delay-1">MIT Applied Data Science Program</p>
+          <p class="summary reveal reveal-delay-2">
+            An analysis of every World Cup from 1930 to 2014 for a fictional new club, covering goals, attendance,
+            host cities, winners, and whether playing at home makes a difference.
+          </p>
+          <ul class="highlights reveal reveal-delay-2">
+            <li>Home teams won 57% of matches, compared with 22% draws and 20% away wins.</li>
+            <li>The best-attended match was Uruguay vs. Brazil in 1950, with 173,850 people.</li>
+            <li>Mexico City hosted the most matches (23). Brazil has the most titles, with 5.</li>
+            <li>Total goals per tournament rose over time, peaking in 1998 and 2014.</li>
+          </ul>
+          <ul class="chips reveal reveal-delay-3">
+            <li>Python</li>
+            <li>pandas</li>
+            <li>seaborn</li>
+            <li>matplotlib</li>
+            <li>EDA</li>
+          </ul>
+          <div class="project-links reveal reveal-delay-3">
+            <a class="btn btn-primary" href="https://colab.research.google.com/drive/1Knf7Xcd_YdnJ75RIw_dbjVbhuUc3BUi9?usp=sharing" target="_blank" rel="noopener">
+              Open notebook
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <a class="btn" href="portfolio/fifa.html" target="_blank" rel="noopener">View static export</a>
+          </div>
+        </div>
+        <div class="project-media reveal reveal-delay-2">
+          <a href="https://colab.research.google.com/drive/1Knf7Xcd_YdnJ75RIw_dbjVbhuUc3BUi9?usp=sharing" target="_blank" rel="noopener" aria-label="Open the FIFA World Cup notebook">
+            <img src="assets/img/fifa-cover.jpg" alt="FIFA World Cup analysis cover with a donut chart of match outcomes and a bar chart of attendance by year" width="1000" height="1000" loading="lazy" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="spotify">
+      <div class="container project">
+        <div>
+          <p class="project-index reveal"><strong>07</strong> / Data Analysis</p>
+          <h2 class="reveal reveal-delay-1">Spotify Top 100 Songs</h2>
+          <p class="context reveal reveal-delay-1">Kaggle most streamed songs dataset</p>
+          <p class="summary reveal reveal-delay-2">
+            An exploratory look at Spotify's 100 most-streamed songs: who made the list, who dominates streams,
+            and how audio features like energy, valence and duration are distributed.
+          </p>
+          <ul class="highlights reveal reveal-delay-2">
+            <li>81 unique artists made the top 100, so several artists have more than one hit on the list.</li>
+            <li>Ed Sheeran, XXXTentacion, Imagine Dragons and Shawn Mendes have the most total streams.</li>
+            <li>Only duration, valence and energy are close to normally distributed. Duration is right-skewed.</li>
+          </ul>
+          <ul class="chips reveal reveal-delay-3">
+            <li>Python</li>
+            <li>pandas</li>
+            <li>seaborn</li>
+            <li>Distributions</li>
+          </ul>
+          <div class="project-links reveal reveal-delay-3">
+            <a class="btn btn-primary" href="https://colab.research.google.com/drive/17JqiwR0i6VS-WVNBv_I1ZaWK38gi0k3B?usp=sharing" target="_blank" rel="noopener">
+              Open notebook
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <a class="btn" href="portfolio/spotify.html" target="_blank" rel="noopener">View static export</a>
+          </div>
+        </div>
+        <div class="project-media reveal reveal-delay-2">
+          <a href="https://colab.research.google.com/drive/17JqiwR0i6VS-WVNBv_I1ZaWK38gi0k3B?usp=sharing" target="_blank" rel="noopener" aria-label="Open the Spotify Top 100 notebook">
+            <img src="assets/img/spotify-cover.jpg" alt="Neon Top 100 Songs cover for the Spotify analysis" width="1000" height="1000" loading="lazy" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="data-cleaning">
+      <div class="container project flip">
+        <div>
+          <p class="project-index reveal"><strong>08</strong> / Data Cleaning</p>
+          <h2 class="reveal reveal-delay-1">Spreadsheet Data Cleaning</h2>
+          <p class="context reveal reveal-delay-1">Google Data Analytics Certificate</p>
+          <p class="summary reveal reveal-delay-2">
+            Four datasets cleaned in Google Sheets and Excel, each with a step-by-step changelog. They use pivot
+            tables, functions and formulas, conditional formatting and data validation.
+          </p>
+          <ul class="highlights reveal reveal-delay-2">
+            <li>Removed nulls from a 33,120-row bike share dataset in Excel, leaving 30,736 rows (a 7.19% reduction), and split timestamps with LEN, LEFT and RIGHT.</li>
+            <li>Used a pivot table to find misspelled party names in a U.S. presidents dataset, then fixed them with find and replace.</li>
+            <li>Deduplicated and filtered a student performance dataset to the study's 14&ndash;18 age range (650 to 609 rows), and recoded education levels as numbers.</li>
+          </ul>
+          <ul class="chips reveal reveal-delay-3">
+            <li>Excel</li>
+            <li>Google Sheets</li>
+            <li>Pivot Tables</li>
+            <li>VLOOKUP</li>
+            <li>Conditional Formatting</li>
+          </ul>
+          <div class="project-links reveal reveal-delay-3">
+            <a class="btn btn-primary" href="https://docs.google.com/document/d/1y9uRCfKVBiSMTEFCAaG2KGVBLqlWvl2VSwlrAJDsTXw/edit?usp=sharing" target="_blank" rel="noopener">
+              Read the changelog
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-media reveal reveal-delay-2">
+          <a href="https://docs.google.com/document/d/1y9uRCfKVBiSMTEFCAaG2KGVBLqlWvl2VSwlrAJDsTXw/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Open the data cleaning changelog">
+            <img src="assets/img/data-cleaning-cover.jpg" alt="Data cleaning cover reading Utilizing Excel, Google Sheets, and Python" width="1280" height="1280" loading="lazy" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="tableau">
+      <div class="container project">
+        <div>
+          <p class="project-index reveal"><strong>09</strong> / Visualization</p>
+          <h2 class="reveal reveal-delay-1">Maternal Mortality Dashboard</h2>
+          <p class="context reveal reveal-delay-1">Tableau Public</p>
+          <p class="summary reveal reveal-delay-2">
+            A Tableau dashboard comparing maternal mortality across developed nations, and breaking down U.S.
+            rates from 2018 to 2021 by race and ethnicity and by age.
+          </p>
+          <ul class="highlights reveal reveal-delay-2">
+            <li>A treemap shows the U.S. has the highest maternal mortality rate among the developed nations compared.</li>
+            <li>Within the U.S., rates are highest for non-Hispanic Black mothers and for mothers aged 40 and over.</li>
+            <li>The rate for non-Hispanic Black mothers rose every year from 2018 to 2021.</li>
+          </ul>
+          <ul class="chips reveal reveal-delay-3">
+            <li>Tableau</li>
+            <li>Dashboards</li>
+            <li>Public Health Data</li>
+          </ul>
+          <div class="project-links reveal reveal-delay-3">
+            <a class="btn btn-primary" href="https://public.tableau.com/app/profile/lea.iodice3726/vizzes" target="_blank" rel="noopener">
+              View on Tableau Public
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-media wide reveal reveal-delay-2">
+          <a href="https://public.tableau.com/app/profile/lea.iodice3726/vizzes" target="_blank" rel="noopener" aria-label="Open Lea's Tableau Public profile">
+            <img src="assets/img/tableau-cover.jpg" alt="Tableau dashboard with a treemap of maternal mortality by developed nation and bar charts by race and age" width="1000" height="742" loading="lazy" style="aspect-ratio: 1000 / 742" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel-end" id="contact">
+      <div class="container">
+        <p class="eyebrow reveal">That's the tour</p>
+        <h2 class="reveal reveal-delay-1">Let's build something with your data.</h2>
+        <p class="reveal reveal-delay-2">
+          I'm always happy to talk about data pipelines, warehouses or interesting datasets.
+          You can find more of my code on GitHub.
+        </p>
+        <div class="project-links reveal reveal-delay-3">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/leaiodice/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/liodice222" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="resume.html">Resume</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
